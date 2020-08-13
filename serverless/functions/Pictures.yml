@@ -1,0 +1,26 @@
+getPictures:
+  handler: api/media-info/handler.getMediaInfo
+  tags:
+    client: client
+  timeout: 30
+  events:
+    - http:
+        path: api/pictures
+        method: get
+        integration: lambda
+        cors: true
+        #          origin: '*'
+        #          headers:
+        #            - Content-Type
+        #            - X-Amz-Date
+        #            - Authorization
+        #            - X-Api-Key
+        #            - X-Amz-Security-Token
+        #            - X-Amz-User-Agent
+        #            - Auth-Token
+        #          allowCredentials: false
+        response:
+          headers:
+            Access-Control-Allow-Origin: "'*'"
+            Content-Type: "'application/json'"
+          template: $input.json('$')
