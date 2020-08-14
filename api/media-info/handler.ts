@@ -26,9 +26,9 @@ import { MediaInfoManager } from './media-info.manager';
  * @param context
  */
 export async function getMediaInfo(event, context) {
+
   log(event);
-  console.log(event.body)
-  console.log(event.query)
+
 
   try {
     /**

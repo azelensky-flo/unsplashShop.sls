@@ -1,5 +1,5 @@
 getPictures:
-  handler: api/media-info/handler.getMediaInfo
+  handler: api/pictures/handler.getPictures
   tags:
     client: client
   timeout: 30

@@ -1,3 +1,3 @@
-export interface PicturesInterface {
+export interface PicturesUrl {
   url: string;
 }
