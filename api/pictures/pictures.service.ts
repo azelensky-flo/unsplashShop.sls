@@ -4,12 +4,12 @@ import { AppError, CommonErrors } from '@helper/app-error';
 
 export class PicturesService {
 
-  async getPictures(url: string, getPicturesService: GetPicturesService) {
+  async getPictures(param, getPicturesService: GetPicturesService) {
 
     let mediaInfo;
 
     try {
-      mediaInfo = await getPicturesService.getPictures(url)
+      mediaInfo = await getPicturesService.getPictures(param)
     } catch (e) {
       throw new AppError(CommonErrors.InternalServerError, e.message)
     }
