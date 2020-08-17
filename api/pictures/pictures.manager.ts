@@ -1,5 +1,4 @@
 import { PicturesService } from './pictures.service';
-// import { PicturesUrl } from './pictures.interface';
 import { GetPicturesService } from '@services/get-pictures.service';
 import { AppError, CommonErrors } from '@helper/app-error';
 

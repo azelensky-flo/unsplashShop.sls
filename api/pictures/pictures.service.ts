@@ -6,19 +6,19 @@ export class PicturesService {
 
   async getPictures(param, getPicturesService: GetPicturesService) {
 
-    let mediaInfo;
+    let pictures;
 
     try {
-      mediaInfo = await getPicturesService.getPictures(param)
+      pictures = await getPicturesService.getPictures(param)
     } catch (e) {
       throw new AppError(CommonErrors.InternalServerError, e.message)
     }
 
-    if (!mediaInfo) {
+    if (!pictures) {
       throw new AppError(CommonErrors.BadRequest, "Can't extract media info. Please, check your URL")
     }
 
-    return mediaInfo;
+    return pictures;
 
   }
 

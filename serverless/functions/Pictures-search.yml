@@ -1,11 +1,11 @@
-getPictures:
-  handler: api/pictures/handler.getPictures
+getSearch:
+  handler: api/search/handler.getSearch
   tags:
     client: client
   timeout: 30
   events:
     - http:
-        path: api/pictures
+        path: api/pictures/search
         method: get
         integration: lambda
         cors: true
