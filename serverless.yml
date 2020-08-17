@@ -167,7 +167,7 @@ custom:
   #    secretAccessKey: root
   #    skipCacheInvalidation: false
 
-plugins: # order matters!
+plugins: # order.ts matters!
   - serverless-env-generator
   - serverless-dir-config-plugin
   - serverless-webpack
