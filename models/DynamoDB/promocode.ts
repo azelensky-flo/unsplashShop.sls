@@ -8,12 +8,8 @@ export interface Promocode {
 }
 
 export const PromoCodeScheme = new dynamoose.Schema({
-  code: {
-    type: String,
-  },
-  discountPercent: {
-    type: Number,
-  },
+  code: String,
+  discount: Number,
 });
 
 export const PromoCodeModel = dynamoose.model<Promocode, string>('PromoCode', PromoCodeScheme);
