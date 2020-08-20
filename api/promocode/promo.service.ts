@@ -10,4 +10,12 @@ export class PromoService {
       throw new AppError(CommonErrors.InternalServerError, e.message);
     }
   }
+
+  async readCode(promoOutService: PromoOutService) {
+    try {
+      return await promoOutService.readCode();
+    } catch (e) {
+      throw new AppError(CommonErrors.InternalServerError, e.message);
+    }
+  }
 }

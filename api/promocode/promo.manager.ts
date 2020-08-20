@@ -14,4 +14,8 @@ export class PromoManager {
 
     return this.service.createCode(promocode, promoOutService);
   }
+
+  readCode(promoOutService: PromoOutService) {
+    return this.service.readCode(promoOutService);
+  }
 }

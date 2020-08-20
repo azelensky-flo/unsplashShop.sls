@@ -17,3 +17,16 @@ export async function createCode(event, context) {
     errorHandler(e);
   }
 }
+
+export async function readCode(event, context) {
+  log('read promocode', event);
+
+  try {
+    const manager = new PromoManager();
+    const promoOutService: PromoOutService = new PromoOutService();
+
+    return await manager.readCode(promoOutService);
+  } catch (e) {
+    errorHandler(e);
+  }
+}
