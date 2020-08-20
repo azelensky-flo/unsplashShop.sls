@@ -1,0 +1,16 @@
+createOrder:
+  handler: api/order/handler.createOrder
+  tags:
+    client: client
+  timeout: 30
+  events:
+    - http:
+        path: api/orders
+        method: post
+        integration: lambda
+        cors: true
+        response:
+          headers:
+            Access-Control-Allow-Origin: "'*'"
+            Content-Type: "'application/json'"
+          template: $input.json('$')
