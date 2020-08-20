@@ -31,3 +31,37 @@ readCode:
             Access-Control-Allow-Origin: "'*'"
             Content-Type: "'application/json'"
           template: $input.json('$')
+
+deleteCode:
+  handler: api/promocode/handler.deleteCode
+  tags:
+    client: client
+  timeout: 30
+  events:
+    - http:
+        path: api/promocode
+        method: delete
+        integration: lambda
+        cors: true
+        response:
+          headers:
+            Access-Control-Allow-Origin: "'*'"
+            Content-Type: "'application/json'"
+          template: $input.json('$')
+
+checkCode:
+  handler: api/promocode/handler.checkCode
+  tags:
+    client: client
+  timeout: 30
+  events:
+    - http:
+        path: api/promocode/check
+        method: get
+        integration: lambda
+        cors: true
+        response:
+          headers:
+            Access-Control-Allow-Origin: "'*'"
+            Content-Type: "'application/json'"
+          template: $input.json('$')

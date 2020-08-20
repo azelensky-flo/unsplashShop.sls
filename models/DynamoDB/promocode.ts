@@ -4,7 +4,7 @@ connectLocalDB(dynamoose);
 
 export interface Promocode {
   code: string;
-  discountPercent: number;
+  discount: number;
 }
 
 export const PromoCodeScheme = new dynamoose.Schema({

@@ -18,4 +18,20 @@ export class PromoService {
       throw new AppError(CommonErrors.InternalServerError, e.message);
     }
   }
+
+  async deleteCode(promoOutService: PromoOutService) {
+    try {
+      return await promoOutService.deleteCode();
+    } catch (e) {
+      throw new AppError(CommonErrors.InternalServerError, e.message);
+    }
+  }
+
+  async checkCode(code, promoOutService: PromoOutService) {
+    try {
+      return await promoOutService.checkCode(code);
+    } catch (e) {
+      throw new AppError(CommonErrors.InternalServerError, e.message);
+    }
+  }
 }

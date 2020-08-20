@@ -30,3 +30,30 @@ export async function readCode(event, context) {
     errorHandler(e);
   }
 }
+
+export async function deleteCode(event, context) {
+  log('delete promocode', event);
+
+  try {
+    const manager = new PromoManager();
+    const promoOutService: PromoOutService = new PromoOutService();
+
+    return await manager.deleteCode(promoOutService);
+  } catch (e) {
+    errorHandler(e);
+  }
+}
+
+export async function checkCode(event, context) {
+  log('check promocode', event);
+
+  try {
+    const code = event.query;
+    const manager = new PromoManager();
+    const promoOutService: PromoOutService = new PromoOutService();
+
+    return await manager.checkCode(code, promoOutService);
+  } catch (e) {
+    errorHandler(e);
+  }
+}

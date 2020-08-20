@@ -18,4 +18,12 @@ export class PromoManager {
   readCode(promoOutService: PromoOutService) {
     return this.service.readCode(promoOutService);
   }
+
+  deleteCode(promoOutService: PromoOutService) {
+    return this.service.deleteCode(promoOutService);
+  }
+
+  checkCode(code, promoOutService: PromoOutService) {
+    return this.service.checkCode(code, promoOutService);
+  }
 }
