@@ -5,8 +5,42 @@ createOrder:
   timeout: 30
   events:
     - http:
-        path: api/orders
+        path: api/order
         method: post
+        integration: lambda
+        cors: true
+        response:
+          headers:
+            Access-Control-Allow-Origin: "'*'"
+            Content-Type: "'application/json'"
+          template: $input.json('$')
+
+readOrder:
+  handler: api/order/handler.readOrder
+  tags:
+    client: client
+  timeout: 30
+  events:
+    - http:
+        path: api/order
+        method: get
+        integration: lambda
+        cors: true
+        response:
+          headers:
+            Access-Control-Allow-Origin: "'*'"
+            Content-Type: "'application/json'"
+          template: $input.json('$')
+
+deleteOrder:
+  handler: api/order/handler.readOrder
+  tags:
+    client: client
+  timeout: 30
+  events:
+    - http:
+        path: api/order
+        method: delete
         integration: lambda
         cors: true
         response:
