@@ -6,10 +6,11 @@ connectLocalDB(dynamoose);
 
 export interface Order {
   id: string;
-  pictures: [];
-  fullPrice: Number;
-  activatedPromotionalCode: boolean;
-  promotionalCode?: Promocode;
+  shopItemsBay: [];
+  sumAllItems: Number;
+  dateBuy: Date;
+  // activatedPromotionalCode: boolean;
+  // promotionalCode?: Promocode;
 }
 
 export const OrderSchema = new dynamoose.Schema({
@@ -18,18 +19,21 @@ export const OrderSchema = new dynamoose.Schema({
     default: uuidv4,
     hashKey: true,
   },
-  pictures: {
+  shopItemsBay: {
     type: [Object],
   },
-  fullPrice: {
+  sumAllItems: {
     type: Number,
   },
-  activatedPromotionalCode: {
-    type: Boolean,
+  dateBuy: {
+    type: String,
   },
-  promotionalCode: {
-    type: Object,
-  },
+  // activatedPromotionalCode: {
+  //   type: Boolean,
+  // },
+  // promotionalCode: {
+  //   type: Object,
+  // },
 });
 
 export const OrderModel = dynamoose.model('Order', OrderSchema);

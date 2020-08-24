@@ -27,9 +27,9 @@ export class PromoService {
     }
   }
 
-  async checkCode(code, promoOutService: PromoOutService) {
+  async checkCode(promocode, promoOutService: PromoOutService) {
     try {
-      return await promoOutService.checkCode(code);
+      return await promoOutService.checkCode(promocode);
     } catch (e) {
       throw new AppError(CommonErrors.InternalServerError, e.message);
     }

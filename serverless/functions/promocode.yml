@@ -57,7 +57,7 @@ checkCode:
   events:
     - http:
         path: api/promocode/check
-        method: get
+        method: post
         integration: lambda
         cors: true
         response:

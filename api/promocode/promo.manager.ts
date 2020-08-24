@@ -23,7 +23,7 @@ export class PromoManager {
     return this.service.deleteCode(promoOutService);
   }
 
-  checkCode(code, promoOutService: PromoOutService) {
-    return this.service.checkCode(code, promoOutService);
+  checkCode(promocode, promoOutService: PromoOutService) {
+    return this.service.checkCode(promocode, promoOutService);
   }
 }

@@ -13,10 +13,13 @@ export class PromoOutService {
     return await PromoCodeModel.delete('promo60');
   }
 
-  async checkCode(code) {
-    if (!code) {
-      throw { message: 'Promotional code does not exist!' };
+  async checkCode(promotionalCode) {
+    const response = await PromoCodeModel.scan('code').eq(promotionalCode).exec();
+
+    if (response[0]) {
+      return { discount: true };
+    } else {
+      return { discount: false };
     }
-    return await PromoCodeModel.queryOne({ code }).exec();
   }
 }

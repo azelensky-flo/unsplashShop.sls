@@ -48,11 +48,11 @@ export async function checkCode(event, context) {
   log('check promocode', event);
 
   try {
-    const code = event.query;
+    const promotionalCode: string = event.body.promotionalCode;
     const manager = new PromoManager();
     const promoOutService: PromoOutService = new PromoOutService();
 
-    return await manager.checkCode(code, promoOutService);
+    return await manager.checkCode(promotionalCode, promoOutService);
   } catch (e) {
     errorHandler(e);
   }
